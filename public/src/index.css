@@ -1,9 +1,49 @@
-.flex-container {
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+ #map {
+    height: 100%;
+  }
+  /* Optional: Makes the sample page fill the window. */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  #floating-panel {
+    position: absolute;
+    top: 10px;
+    left: 25%;
+    z-index: 5;
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #999;
+    text-align: center;
+    font-family: 'Roboto','sans-serif';
+    line-height: 30px;
+    padding-left: 10px;
+  }
+  #pano {
+    width: 50%;
+    height: 100%;
+    float: left;
+  }
+  #floating-panel {
+    width: 45%;
+    height: 100%;
+    float: right;
+    text-align: left;
+    overflow: auto;
+    position: static;
+    border: 0px solid #999;
+  }
+
+  .flex-container {
     float: right;
     display: flex;
     flex-direction: column;
     justify-content: space-between;    
     /* width: 30vw; */
+<<<<<<< HEAD
    
 }
 
@@ -44,11 +84,13 @@ iframe {
 
 .right {
     width: 30%;
+=======
+>>>>>>> 96695f03ade3facf00d42f9837978376c45a09a1
 }
 
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
+.location-card {
+    flex: 1
+    /* flex: 0 1 10%; */
+    /* height: 30%;
+    width: 80%; */
 }

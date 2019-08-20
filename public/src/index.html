@@ -7,35 +7,60 @@
     <link rel="stylesheet" href="index.css">
   </head>
   <body>
-    <script type='text/javascript' src='config.js'></script>
-    <script src="index.js"></script>
-    <div class="column right flex-container">
-      <div>
-        <div class="card w-100">
-          <div class="card border-0 shadow location-card">
-            <img src="imgs/NYSE.png" class="card-img-top" alt="..." style="height:200px; width:400px">
-            <div class="card-body text-center">
-              <h5 class="card-title mb-0">New York Stock Exchange</h5>
-            </div>
-          </div>
-        </div>
-        <div class="card w-100">
-          <div class="card border-0 shadow location-card">
-            <img src="imgs/NYSE.png" class="card-img-top" alt="...">
-            <div class="card-body text-center">
-              <h6 class="card-title mb-0">New York Stock Exchange</h6>
-            </div>
-          </div>
-        </div>  
-        <div class="card w-100">  
+
+      <div id="pano"></div>
+      <div id="floating-panel">
+        <div class="column right flex-container"> 
+
           <div class="card border-0 shadow location-card">
             <img src="imgs/NYSE.png" class="card-img-top" alt="...">
             <div class="card-body text-center">
               <h5 class="card-title mb-0">New York Stock Exchange</h5>
             </div>
           </div>
+          
+          <div class="card border-0 shadow location-card">
+            <img src="imgs/NYSE.png" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+              <h5 class="card-title mb-0">New York Stock Exchange</h5>
+            </div>
+          </div>
+          
+          
+          <div class="card border-0 shadow location-card">
+            <img src="imgs/NYSE.png" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+              <h5 class="card-title mb-0">New York Stock Exchange</h5>
+            </div>
+          </div>
+
         </div>
       </div>
-    </div>
-  </body>
+      
+      <script src="index.js" defer></script>
+      <div class="column right">
+        something
+      </div>
+      <script type='text/javascript' src='config.js'></script>
+      <script 
+src="https://maps.googleapis.com/maps/api/js?key=YOURAPIKEY&callback=initPano"></script>
+ 
+    </body>
 </html>
+
+
+<!-- <table>
+  <tr>
+    <td><b>Position</b></td><td id="position-cell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td><b>POV Heading</b></td><td id="heading-cell">270</td>
+  </tr>
+  <tr>
+    <td><b>POV Pitch</b></td><td id="pitch-cell">0.0</td>
+  </tr>
+  <tr>
+    <td><b>Pano ID</b></td><td id="pano-cell">&nbsp;</td>
+  </tr>
+  <table id="links_table"></table>
+</table> -->
