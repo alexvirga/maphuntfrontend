@@ -69,25 +69,3 @@ function initPano() {
   }
 
   initPano() 
-
-
-
-
-<<<<<<< HEAD
-document.addEventListener("DOMContentLoaded", () => {
-    document.body.insertAdjacentHTML("afterbegin", 
-`<iframe class="column left" id="map"
-  src="" allowfullscreen>
-</iframe>`)
-})
-=======
->>>>>>> 96695f03ade3facf00d42f9837978376c45a09a1
-
- 
-
-<<<<<<< HEAD
-console.log(document.getElementsByClassName("gm-iv-short-address-description")[0].innerText)
-
-// "Https://www.google.com/maps/embed/v1/streetview?key=${mykey}&location=40.705258,-74.0138061&heading=210&pitch=10&fov=35"
-=======
->>>>>>> 96695f03ade3facf00d42f9837978376c45a09a1
