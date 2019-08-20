@@ -1,45 +1,38 @@
-.flex-container {
-    float: right;
-    display: flex;
-    /* justify-content: flex-end; */
-    flex-direction: column;
-    height: 100vh;       
-    width: 30vw;
-}
-
-body {
-    margin: 0;            
-}
-iframe {
-    display: block;       
-    background: #000;
-    border: none;         
-    height: 100vh;       
-    width: 70vw;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-  /* Create two unequal columns that floats next to each other */
-.column {
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+ #map {
+    height: 100%;
+  }
+  /* Optional: Makes the sample page fill the window. */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  #floating-panel {
+    position: absolute;
+    top: 10px;
+    left: 25%;
+    z-index: 5;
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #999;
+    text-align: center;
+    font-family: 'Roboto','sans-serif';
+    line-height: 30px;
+    padding-left: 10px;
+  }
+  #pano {
+    width: 50%;
+    height: 100%;
     float: left;
-    padding: 10px;
-    height: 100vh; /* Should be removed. Only for demonstration */
-}
-
-.left {
-    width: 70%;
-}
-
-.right {
-    width: 30%;
-}
-
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
+  }
+  #floating-panel {
+    width: 45%;
+    height: 100%;
+    float: right;
+    text-align: left;
+    overflow: auto;
+    position: static;
+    border: 0px solid #999;
+  }
