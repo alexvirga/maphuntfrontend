@@ -6,7 +6,7 @@ const mykey = config.MY_KEY;
 
 
 
-// src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk&callback=initPano
+// src="https://maps.googleapis.com/maps/api/js?key=YOURKEY&callback=initPano
 
 //     document.body.insertAdjacentHTML("afterbegin", 
 // `<div class="map"> <script 
