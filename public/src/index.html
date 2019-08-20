@@ -3,29 +3,40 @@
   <head>
     <meta charset="utf-8">
     <title>Scavenger Hunt</title>
- 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
   </head>
   <body>
 
       <div id="pano"></div>
       <div id="floating-panel">
-      <table>
-        <tr>
-          <td><b>Position</b></td><td id="position-cell">&nbsp;</td>
-        </tr>
-        <tr>
-          <td><b>POV Heading</b></td><td id="heading-cell">270</td>
-        </tr>
-        <tr>
-          <td><b>POV Pitch</b></td><td id="pitch-cell">0.0</td>
-        </tr>
-        <tr>
-          <td><b>Pano ID</b></td><td id="pano-cell">&nbsp;</td>
-        </tr>
-        <table id="links_table"></table>
-      </table>
+        <div class="column right flex-container"> 
+
+          <div class="card border-0 shadow location-card">
+            <img src="imgs/NYSE.png" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+              <h5 class="card-title mb-0">New York Stock Exchange</h5>
+            </div>
+          </div>
+          
+          <div class="card border-0 shadow location-card">
+            <img src="imgs/NYSE.png" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+              <h5 class="card-title mb-0">New York Stock Exchange</h5>
+            </div>
+          </div>
+          
+          
+          <div class="card border-0 shadow location-card">
+            <img src="imgs/NYSE.png" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+              <h5 class="card-title mb-0">New York Stock Exchange</h5>
+            </div>
+          </div>
+
+        </div>
       </div>
+      
       <script src="index.js" defer></script>
       <div class="column right">
         something
@@ -36,3 +47,20 @@ src="https://maps.googleapis.com/maps/api/js?key=YOURAPIKEY&callback=initPano"><
  
     </body>
 </html>
+
+
+<!-- <table>
+  <tr>
+    <td><b>Position</b></td><td id="position-cell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td><b>POV Heading</b></td><td id="heading-cell">270</td>
+  </tr>
+  <tr>
+    <td><b>POV Pitch</b></td><td id="pitch-cell">0.0</td>
+  </tr>
+  <tr>
+    <td><b>Pano ID</b></td><td id="pano-cell">&nbsp;</td>
+  </tr>
+  <table id="links_table"></table>
+</table> -->
