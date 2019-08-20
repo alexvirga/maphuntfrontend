@@ -1,3 +1,45 @@
 .flex-container {
+    float: right;
     display: flex;
+    /* justify-content: flex-end; */
+    flex-direction: column;
+    height: 100vh;       
+    width: 30vw;
+}
+
+body {
+    margin: 0;            
+}
+iframe {
+    display: block;       
+    background: #000;
+    border: none;         
+    height: 100vh;       
+    width: 70vw;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+  /* Create two unequal columns that floats next to each other */
+.column {
+    float: left;
+    padding: 10px;
+    height: 100vh; /* Should be removed. Only for demonstration */
+}
+
+.left {
+    width: 70%;
+}
+
+.right {
+    width: 30%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
 }
