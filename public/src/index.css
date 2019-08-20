@@ -43,49 +43,6 @@
     flex-direction: column;
     justify-content: space-between;    
     /* width: 30vw; */
-<<<<<<< HEAD
-   
-}
-
-
-.location-card {
-    flex: 1
-
-    /* flex: 0 1 10%; */
-    /* height: 30%;
-    width: 80%; */
-}
-
-body {
-    margin: 0;            
-}
-iframe {
-    display: block;       
-    background: #000;
-    border: none;         
-    height: 100vh;       
-    width: 70vw;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-  /* Create two unequal columns that floats next to each other */
-.column {
-    float: left;
-    padding: 10px;
-    height: 100vh; /* Should be removed. Only for demonstration */
-}
-
-.left {
-    width: 70%;
-}
-
-.right {
-    width: 30%;
-=======
->>>>>>> 96695f03ade3facf00d42f9837978376c45a09a1
 }
 
 .location-card {
