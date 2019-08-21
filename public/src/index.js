@@ -17,8 +17,6 @@ function initPano() {
         setTimeout(loadAddress, 100)
     });
  
-
-
 }
 
 function loadAddress(){
@@ -55,6 +53,38 @@ let items = [
 },
   ];
 
+function startGame(){
+  let containerCard = document.getElementById("flex-container")
+  containerCard.innerHTML = `
+  <div class="col-sm-3">
+  <a href="#" class="btn btn-lg red">Start</a>
+</div>`
+let timerCard = document.getElementsByClassName("floating-panel-timer")[0]
+timerCard.innerHTML = "<h1> <b> Welcome! </b> </h1> <br> <p><b> How to play: </b> </p> <p3> Navigate through the streets to find the 5 locations shown below. Order does not matter, so make sure you plan your trip wisely! </p3>"
+
+let startbutton = document.getElementsByClassName("btn btn-lg red")[0]
+startbutton.addEventListener("click", function(e){
+  timerCard.innerHTML = "<h1> GO! </h1>"
+  timer()
+  containerCard.innerHTML = ""
+  drawCards()
+
+
+})
+}
+
+function timer(){
+let timeCard = document.getElementsByClassName("floating-panel-timer")[0]
+let seconds = 1;
+setInterval(function() {
+let currentTime = seconds++
+
+timeCard.innerHTML = `<h1> ${Math.floor(currentTime / 60) + ':' + ('0' + Math.floor(currentTime % 60)).slice(-2) } </h1>`;
+}, 1000);
+}
+
+
+
 
 function drawCards(){
 let newCard = document.getElementById("flex-container")
@@ -85,11 +115,8 @@ if(cardAddress[0].id === address ){
       cardAddress[4].style.backgroundColor = "grey"}
 }
 
-
-
-
   initPano()
-  drawCards()
+  startGame()
   
 
 })
