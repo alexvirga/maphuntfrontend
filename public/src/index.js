@@ -1,22 +1,6 @@
-
-
-
 const mykey = config.MY_KEY;
-// const address = document.getElementsByClassName("gm-iv-short-address-description")[0].innerText
 
-
-
-// src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk&callback=initPano
-
-//     document.body.insertAdjacentHTML("afterbegin", 
-// `<div class="map"> <script 
-// src="https://maps.googleapis.com/maps/api/js?key=${mykey}&callback=initPano
-// </script></div>`)
-
-// src="Https://www.google.com/maps/embed/v1/streetview?key=${mykey}&location=40.705258,-74.0138061&heading=210&pitch=10&fov=35&" allowfullscreen>
-// let address = document.getElementsByClassName("gm-iv-short-address-description")
-// console.log('hi')
-
+document.addEventListener("DOMContentLoaded", function() {
 function initPano() {
     var panorama = new google.maps.StreetViewPanorama(
         document.getElementById('pano'), {
@@ -26,53 +10,72 @@ function initPano() {
             pitch: 0
           },
           visible: true
-    });
-    
+        });
 
-  
-    panorama.addListener('pano_changed', function() {
-        var panoCell = document.getElementById('pano-cell');
-        panoCell.innerHTML = panorama.getPano();
-    });
-  
-    panorama.addListener('links_changed', function() {
-        var linksTable = document.getElementById('links_table');
-        while (linksTable.hasChildNodes()) {
-          linksTable.removeChild(linksTable.lastChild);
-        }
-        var links = panorama.getLinks();
-        for (var i in links) {
-          var row = document.createElement('tr');
-          linksTable.appendChild(row);
-          var labelCell = document.createElement('td');
-          labelCell.innerHTML = '<b>Link: ' + i + '</b>';
-          var valueCell = document.createElement('td');
-          valueCell.innerHTML = links[i].description;
-          linksTable.appendChild(labelCell);
-          linksTable.appendChild(valueCell);
-        }
-    });
-  
+
     panorama.addListener('position_changed', function() {
-        var positionCell = document.getElementById('position-cell');
-        positionCell.firstChild.nodeValue = panorama.getPosition() + '';
+        setTimeout(loadAddress, 100)
     });
+ 
+    function loadAddress(){
+        let currentLocation = document.querySelector("#pano > div > div:nth-child(10) > div.gm-iv-address > div.gm-iv-address-description > div.gm-iv-short-address-description")
+        let locationContent = currentLocation.textContent
+        verifyAnswer(locationContent)
+    }
+
+}
+let items = [
+    {
+      name: "Flatiron School",
+      address: "20 Canyon of Heroes",
+      img: " "
+    },
+    {
+        name: "New York Stock Exchange",
+        address: "11 Wall St",
+        img: " "
+    },
+    {
+        name: "Big Red Cube",
+        address: "135 Broadway",
+        img: " "
+    }
+  ];
+
+
+function drawCards(){
+let newCard = document.getElementById("flex-container")
+
+
+   for (let i = 0; i < 5; i++){
+    let randomLocation = items[Math.floor(Math.random() * items.length)];
+    newCard.insertAdjacentHTML("beforeend",
+    `<div class="card border-0 shadow location-card" id="${randomLocation.address}">
+    <img src="imgs/NYSE.png" class="card-img-top" alt="...">
+    <div class="card-body text-center">
+      <h5 class="card-title mb-0">${randomLocation.name}</h5>
+    </div>
+  </div>`)}
+}
+
+function verifyAnswer(address){
+let cardAddress = document.getElementsByClassName("card border-0 shadow location-card")
+let i = 0
+if(cardAddress[i].id !== address ){
+    i++
+}
+else
+cardAddress[i].style.backgroundColor = "grey"
+}
+
+  initPano()
+  drawCards()
   
-    panorama.addListener('pov_changed', function() {
-        var headingCell = document.getElementById('heading-cell');
-        var pitchCell = document.getElementById('pitch-cell');
-        headingCell.firstChild.nodeValue = panorama.getPov().heading + '';
-        pitchCell.firstChild.nodeValue = panorama.getPov().pitch + '';
-    });
+
+})
+
+
     
-
-  }
-
-  initPano() 
-
-
-
-
 
  
 
