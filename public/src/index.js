@@ -2,6 +2,7 @@ const mykey = config.MY_KEY;
 const BASE_URL = "http://localhost:3000"
 
 document.addEventListener("DOMContentLoaded", function() {
+  let locationArray = []
   // ADDED FETCH/////////////
   fetch (`${BASE_URL}/games`, {
     method: 'POST',
@@ -14,18 +15,9 @@ document.addEventListener("DOMContentLoaded", function() {
     return response.json();
   })
   .then(function(data) { 
-    
-    console.log(data)
-    
     data.forEach(function (location){
-      let newCard = document.getElementById("flex-container")
-      newCard.insertAdjacentHTML("beforeend",
-    `<div class="card border-0 shadow location-card" id="${location.address}">
-    <img src="imgs/NYSE.png" class="card-img-top" alt="...">
-    <div class="card-body text-center">
-      <h5 class="card-title mb-0">${location.name}</h5>
-    </div>
-    </div>`)
+      locationArray.push(location)
+     
     })
 })
 // END FETCH ////////////////
@@ -53,33 +45,6 @@ function loadAddress(){
   verifyAnswer(locationContent)
 }
 
-let items = [
-    {
-      name: "Flatiron School",
-      address: "22 Canyon of Heroes",
-      img: " "
-    },
-    {
-        name: "Big Red Cube",
-        address: "135 Broadway",
-        img: " "
-    },
-    {
-      name: "Bull",
-      address: "27 Canyon of Heroes",
-      img: " "
-  },
-  {
-    name: "DMV",
-    address: "3 Greenwich St",
-    img: " "
-},
-{
-  name: "New York Stock Exchange",
-  address: "11 Wall St",
-  img: " "
-},
-  ];
 
 function startGame(){
   let containerCard = document.getElementById("flex-container")
@@ -118,7 +83,7 @@ function drawCards(){
 let newCard = document.getElementById("flex-container")
   //  for (let i = 0; i < 5; i++){
     // let randomLocation = items[Math.floor(Math.random() * items.length)];
-    items.forEach(function(randomLocation){
+    locationArray.forEach(function(randomLocation){
     newCard.insertAdjacentHTML("beforeend",
     `<div class="card border-0 shadow location-card" id="${randomLocation.address}">
     <img src="imgs/NYSE.png" class="card-img-top" alt="...">
