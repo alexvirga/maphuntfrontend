@@ -1,7 +1,35 @@
 const mykey = config.MY_KEY;
+const BASE_URL = "http://localhost:3000"
 
 document.addEventListener("DOMContentLoaded", function() {
-function initPano() {
+  // ADDED FETCH/////////////
+  fetch (`${BASE_URL}/games`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    // body: JSON.stringify()
+  })
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) { 
+    
+    console.log(data)
+    
+    data.forEach(function (location){
+      let newCard = document.getElementById("flex-container")
+      newCard.insertAdjacentHTML("beforeend",
+    `<div class="card border-0 shadow location-card" id="${location.address}">
+    <img src="imgs/NYSE.png" class="card-img-top" alt="...">
+    <div class="card-body text-center">
+      <h5 class="card-title mb-0">${location.name}</h5>
+    </div>
+    </div>`)
+    })
+})
+// END FETCH ////////////////
+  function initPano() {
     var panorama = new google.maps.StreetViewPanorama(
         document.getElementById('pano'), {
           position: {lat: 40.705258, lng: -74.0138061},
@@ -122,7 +150,33 @@ if(cardAddress[0].id === address ){
 })
 
 
-    
-
+// old location cards  ///////  
+// let items = [
+//   {
+//     name: "Flatiron School",
+//     address: "22 Canyon of Heroes",
+//     img: " "
+//   },
+//   {
+//       name: "Big Red Cube",
+//       address: "135 Broadway",
+//       img: " "
+//   },
+//   {
+//     name: "Bull",
+//     address: "27 Canyon of Heroes",
+//     img: " "
+// },
+// {
+//   name: "DMV",
+//   address: "3 Greenwich St",
+//   img: " "
+// },
+// {
+// name: "New York Stock Exchange",
+// address: "11 Wall St",
+// img: " "
+// },
+// ];
  
 
