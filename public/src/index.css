@@ -69,6 +69,10 @@
     border-radius: 25px;
     display: none;
   }
+
+  #new-game {
+    bottom: 0;
+  }
   .score-form-panel {
     
     background: url("https://i.imgur.com/aX3jVFW.png?1") no-repeat;
