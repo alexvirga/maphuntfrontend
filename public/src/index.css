@@ -76,6 +76,7 @@
   .score-form-panel {
     
     background: url("https://i.imgur.com/aX3jVFW.png?1") no-repeat;
+    text-align: center;
     background-size: cover;
     box-shadow: 0 1px 38px rgba(0, 0, 0, 0.15), 0 5px 12px rgba(0, 0, 0, 0.25);
     overflow: hidden;
@@ -86,40 +87,66 @@
     font-family: 'Roboto','sans-serif';
     line-height: 30px;
     height: 30vh;
-    width: 60vw;
+    width: 100%;
     position: absolute;
-    top: 15vh;
-    left: 20vw;
+    top: 25vh;
+
     overflow: auto;
     border-radius: 25px;
     display: none;
   }
 
-  .floating-panel-timer {
+  .floating-panel-welcome {
     
     display: flex;
+    text-align: center;
     flex-direction: column; 
     align-items: center;
-    justify-content: space-around;
     align-content: center;
-
     background-size: cover;
     box-shadow: 0 1px 38px rgba(0, 0, 0, 0.15), 0 5px 12px rgba(0, 0, 0, 0.25);
-    overflow: hidden;
     left: 25%;
-    z-index: 5;
+    z-index: 10;
     background-color: #fff;
     padding: 5px;
     border: 15px solid rgba(201, 201, 201, 0.747);
     font-family: Arial, Helvetica, sans-serif;
     line-height: 30px;
-    height: 20%;
-    width: 15vw;
+    height: 30%;
+    width: 20vw;
     float: right;
     overflow: auto;
     border-radius: 25px;
     margin-bottom: 20px;
   }
+  .floating-panel-timer {
+    
+    display: none;
+    flex-direction: column; 
+    align-items: center;
+    align-content: center;
+
+    background-size: cover;
+    box-shadow: 0 1px 38px rgba(0, 0, 0, 0.15), 0 5px 12px rgba(0, 0, 0, 0.25);
+    left: 25%;
+    z-index: 5;
+    background-color: #fff;
+    padding: 10px;
+    border: 8px solid rgba(201, 201, 201, 0.747);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 30px;
+    height: 10vh;
+    width: 10vw;
+    float: right;
+    overflow: auto;
+    border-radius: 25px;
+    margin-bottom: 20px
+  }
+
+  h1{
+    margin-bottom: 0;
+  }
+
 
   .end-game-panel{
     position: inherit;
@@ -185,8 +212,13 @@
     text-align: center;
     flex: 1;
     flex: 0 1 10%;
-    height: 40%;
     width: 80%;
+    margin-bottom: 10px;
+    border-radius: 20px;
+}
+
+.card-img-top{
+  border-radius: 20px 20px 0px 0px 
 }
 
 
@@ -195,8 +227,8 @@
 
 .btn{
   display: flex;
-  align-items: center;
-  justify-content: space-around;
+  align-self: center;
+  align-items: middle;
     color: #fff;
     border-radius: 50px;
     text-transform: uppercase;
@@ -207,7 +239,7 @@
 .btn:hover{
     color: #fff;
 }
-.btn:after{
+/* .btn:after{
     content: "";
     width: 120%;
     height: 130%;
@@ -217,9 +249,9 @@
     top: -15%;
     left: -10%;
     opacity: 0;
-    transition: all 0.2s ease 0s;
+    transition: all 0.2s ease 0s; */
 
-}
+/* } */
 .btn:hover:after{
     opacity: 1;
     width: 110%;
