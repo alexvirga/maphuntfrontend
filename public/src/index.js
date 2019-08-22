@@ -2,6 +2,9 @@ const mykey = config.MY_KEY;
 const BASE_URL = "http://localhost:3000"
 const scoreFormPanel = document.querySelector('.score-form-panel')
 const leaderBoardPanel = document.querySelector('.floating-panel-score')
+const endGamePanel = document.querySelector(".end-game-panel")
+
+
 
 let foundCount = 0
 let currentTime = 0
@@ -69,10 +72,16 @@ startbutton.addEventListener("click", function(e){
   timer()
   containerCard.innerHTML = ""
   drawCards()
+  endGamePanel.style.display = 'block'
 
-
+  const endButton = document.getElementsByClassName("btn btn-lg redend")[0]
+  endButton.addEventListener("click", function(){
+    endGame()
+  })
 })
 }
+
+
 
 function timer(){
   let timeCard = document.getElementsByClassName("floating-panel-timer")[0]
@@ -118,7 +127,7 @@ function verifyAnswer(address){
         (foundCount++)
         cardAddress[3].id = "Found"
         cardAddress[3].style.backgroundColor = "grey"}
-        if (foundCount === 4){
+        if (foundCount === 1){
           endGame()
         }
   }
