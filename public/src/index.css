@@ -48,6 +48,49 @@
 
   }
 
+  .floating-panel-score {
+    
+    background: url("https://i.imgur.com/aX3jVFW.png?1") no-repeat;
+    background-size: cover;
+    box-shadow: 0 1px 38px rgba(0, 0, 0, 0.15), 0 5px 12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    z-index: 10;
+    background-color: #fff;
+    padding: 5px;
+    border: 15px solid rgba(201, 201, 201, 0.747);
+    font-family: 'Roboto','sans-serif';
+    line-height: 30px;
+    height: 60vh;
+    width: 60vw;
+    position: absolute;
+    top: 15vh;
+    left: 20vw;
+    overflow: auto;
+    border-radius: 25px;
+    display: none;
+  }
+  .score-form-panel {
+    
+    background: url("https://i.imgur.com/aX3jVFW.png?1") no-repeat;
+    background-size: cover;
+    box-shadow: 0 1px 38px rgba(0, 0, 0, 0.15), 0 5px 12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    z-index: 15;
+    background-color: #fff;
+    padding: 5px;
+    border: 15px solid rgba(201, 201, 201, 0.747);
+    font-family: 'Roboto','sans-serif';
+    line-height: 30px;
+    height: 30vh;
+    width: 60vw;
+    position: absolute;
+    top: 15vh;
+    left: 20vw;
+    overflow: auto;
+    border-radius: 25px;
+    display: none;
+  }
+
   .floating-panel-timer {
     
     display: flex;
@@ -73,6 +116,7 @@
     border-radius: 25px;
     margin-bottom: 20px;
   }
+  
   #pano {
     width: 69vw;
     height: 100%;

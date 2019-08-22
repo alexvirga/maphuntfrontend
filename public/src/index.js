@@ -1,8 +1,16 @@
 const mykey = config.MY_KEY;
 const BASE_URL = "http://localhost:3000"
+const scoreFormPanel = document.querySelector('.score-form-panel')
+const leaderBoardPanel = document.querySelector('.floating-panel-score')
+
+let foundCount = 0
+let currentTime = 0
+let timer;
+
 
 document.addEventListener("DOMContentLoaded", function() {
   let locationArray = []
+  
   // ADDED FETCH/////////////
   fetch (`${BASE_URL}/games`, {
     method: 'POST',
@@ -17,9 +25,9 @@ document.addEventListener("DOMContentLoaded", function() {
   .then(function(data) { 
     data.forEach(function (location){
       locationArray.push(location)
-     
+      console.log("loaded")
     })
-})
+  })
 // END FETCH ////////////////
   function initPano() {
     var panorama = new google.maps.StreetViewPanorama(
@@ -67,13 +75,13 @@ startbutton.addEventListener("click", function(e){
 }
 
 function timer(){
-let timeCard = document.getElementsByClassName("floating-panel-timer")[0]
-let seconds = 1;
-setInterval(function() {
-let currentTime = seconds++
+  let timeCard = document.getElementsByClassName("floating-panel-timer")[0]
+  let seconds = 1;
+  timer = setInterval(function() {
+    currentTime = seconds++
 
-timeCard.innerHTML = `<h1> ${Math.floor(currentTime / 60) + ':' + ('0' + Math.floor(currentTime % 60)).slice(-2) } </h1>`;
-}, 1000);
+    timeCard.innerHTML = `<h1> ${Math.floor(currentTime / 60) + ':' + ('0' + Math.floor(currentTime % 60)).slice(-2) } </h1>`;
+  }, 1000);
 }
 
 
@@ -81,8 +89,7 @@ timeCard.innerHTML = `<h1> ${Math.floor(currentTime / 60) + ':' + ('0' + Math.fl
 
 function drawCards(){
 let newCard = document.getElementById("flex-container")
-  //  for (let i = 0; i < 5; i++){
-    // let randomLocation = items[Math.floor(Math.random() * items.length)];
+ 
     locationArray.forEach(function(randomLocation){
     newCard.insertAdjacentHTML("beforeend",
     `<div class="card border-0 shadow location-card" id="${randomLocation.address}">
@@ -94,54 +101,76 @@ let newCard = document.getElementById("flex-container")
 }
 
 function verifyAnswer(address){
-let cardAddress = document.getElementsByClassName("card border-0 shadow location-card")
-let i = 0
-if(cardAddress[0].id === address ){
-  cardAddress[0].style.backgroundColor = "grey"}
-    else if (cardAddress[1].id === address ){
-      cardAddress[1].style.backgroundColor = "grey"}
-    else if (cardAddress[2].id === address ){
-      cardAddress[2].style.backgroundColor = "grey"}
-    else if (cardAddress[3].id === address ){
-      cardAddress[3].style.backgroundColor = "grey"}
-    else if (cardAddress[4].id === address ){
-      cardAddress[4].style.backgroundColor = "grey"}
-}
+  let cardAddress = document.getElementsByClassName("card border-0 shadow location-card")
+  if(cardAddress[0].id === address ){
+    (foundCount++)
+    cardAddress[0].id = "Found"
+    cardAddress[0].style.backgroundColor = "grey"} 
+      else if (cardAddress[1].id === address ){
+        (foundCount++)
+        cardAddress[1].id = "Found"
+        cardAddress[1].style.backgroundColor = "grey"}
+      else if (cardAddress[2].id === address ){
+        (foundCount++)
+        cardAddress[2].id = "Found"
+        cardAddress[2].style.backgroundColor = "grey"}
+      else if (cardAddress[3].id === address ){
+        (foundCount++)
+        cardAddress[3].id = "Found"
+        cardAddress[3].style.backgroundColor = "grey"}
+        if (foundCount === 4){
+          endGame()
+        }
+  }
 
   initPano()
   startGame()
   
+  function endGame (){
+    clearInterval(timer)
+    scoreFormPanel.style.display = 'block'
+    scoreFormPanel.addEventListener("submit", function(e){
+      e.preventDefault()
+      let data = {name: document.querySelector("input[name=name").value, number: foundCount, time: currentTime}
+      fetch (`${BASE_URL}/scores`, {
+      method: 'POST', 
+      headers: 
+      {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data)
+      })
+      .then(function(response) {
+        return response.json()
+      })
+      .then(function (data) { 
+        scoreFormPanel.style.display = 'none'
+        showLeaderBoard()
+      })
+      }) 
+  } 
+
+  function showLeaderBoard (){
+    leaderBoardPanel.style.display = 'block'
+    fetch (`${BASE_URL}/scores`)
+    .then(function(response) {
+      return response.json()
+    })
+    .then(function (data) { 
+      data.forEach (function (score) {
+        document.querySelector('#leaderboard').insertAdjacentHTML("beforeend", `<tr>
+        <td>${score.name}</td>
+        <td>${score.number}</td> 
+        <td>${Math.floor(score.time/ 60) + ':' + ('0' + Math.floor(score.time % 60)).slice(-2) }</td>
+      </tr>`)
+      })
+    })
+  }
 
 })
+//end DOM content loaded ///
 
 
-// old location cards  ///////  
-// let items = [
-//   {
-//     name: "Flatiron School",
-//     address: "22 Canyon of Heroes",
-//     img: " "
-//   },
-//   {
-//       name: "Big Red Cube",
-//       address: "135 Broadway",
-//       img: " "
-//   },
-//   {
-//     name: "Bull",
-//     address: "27 Canyon of Heroes",
-//     img: " "
-// },
-// {
-//   name: "DMV",
-//   address: "3 Greenwich St",
-//   img: " "
-// },
-// {
-// name: "New York Stock Exchange",
-// address: "11 Wall St",
-// img: " "
-// },
-// ];
- 
+
+
 
