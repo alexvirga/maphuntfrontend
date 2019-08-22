@@ -2,7 +2,7 @@ const mykey = config.MY_KEY;
 const BASE_URL = "http://localhost:3000"
 const scoreFormPanel = document.querySelector('.score-form-panel')
 const leaderBoardPanel = document.querySelector('.floating-panel-score')
-const endGamePanel = document.querySelector(".end-game-panel")
+const endGameButton = document.querySelector("#end-button")
 
 
 
@@ -77,10 +77,10 @@ startbutton.addEventListener("click", function(e){
   timer()
   containerCard.innerHTML = ""
   drawCards()
-  endGamePanel.style.display = 'block'
+  endGameButton.style.display = 'block'
 
-  const endButton = document.getElementsByClassName("btn btn-lg redend")[0]
-  endButton.addEventListener("click", function(){
+  // const endButton = document.getElementById("end-button")
+  endGameButton.addEventListener("click", function(){
     endGame()
   })
 })
@@ -158,16 +158,16 @@ function verifyAnswer(address){
         return response.json()
       })
       .then(function (data) { 
-        scoreFormPanel.style.display = 'none'
         showLeaderBoard()
       })
       }) 
   } 
 
   function showLeaderBoard (){
-    leaderBoardPanel.style.display = 'block'
+    scoreFormPanel.style.display = 'none'
     fetch (`${BASE_URL}/scores`)
     .then(function(response) {
+      leaderBoardPanel.style.display = 'block'
       return response.json()
     })
     .then(function (data) { 

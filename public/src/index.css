@@ -17,7 +17,9 @@
     
   }
 
-  
+  #end-button{
+    display: none;
+  }
 
   .floating-panel {
     display: flex;
@@ -72,6 +74,8 @@
 
   #new-game {
     bottom: 0;
+    margin: auto;
+    position: sticky;
   }
   .score-form-panel {
     
@@ -87,10 +91,10 @@
     font-family: 'Roboto','sans-serif';
     line-height: 30px;
     height: 30vh;
-    width: 100%;
+    width: 60%;
     position: absolute;
     top: 25vh;
-
+    left: 20%;
     overflow: auto;
     border-radius: 25px;
     display: none;
