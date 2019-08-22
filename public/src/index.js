@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
     panorama.addListener('position_changed', function() {
         setTimeout(loadAddress, 100)
     });
- 
+
 }
 
 function loadAddress(){
@@ -58,19 +58,17 @@ function startGame(){
   let containerCard = document.getElementById("flex-container")
   containerCard.innerHTML = `
   <div class="col-sm-3">
-  <a href="#" class="btn btn-lg red">Start</a>
+  <a href="#" class="btn btn-lg red" id="start-button">Start</a>
 </div>`
 let timerCard = document.getElementsByClassName("floating-panel-timer")[0]
 timerCard.innerHTML = "<h1> <b> Welcome! </b> </h1> <br> <p><b> How to play: </b> </p> <p3> Navigate through the streets to find the 5 locations shown below. Order does not matter, so make sure you plan your trip wisely! </p3>"
 
-let startbutton = document.getElementsByClassName("btn btn-lg red")[0]
+let startbutton = document.getElementById("start-button")
 startbutton.addEventListener("click", function(e){
   timerCard.innerHTML = "<h1> GO! </h1>"
   timer()
   containerCard.innerHTML = ""
   drawCards()
-
-
 })
 }
 
@@ -118,7 +116,7 @@ function verifyAnswer(address){
         (foundCount++)
         cardAddress[3].id = "Found"
         cardAddress[3].style.backgroundColor = "grey"}
-        if (foundCount === 4){
+        if (foundCount === 1){
           endGame()
         }
   }
