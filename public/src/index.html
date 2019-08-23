@@ -14,29 +14,31 @@
     
             <input type="text" name="name" value="" placeholder="Your Name" class="input-text">
             <br>
-            <input type="submit" name="submit" value="Submit Score" class="submit">
+            <input type="submit" name="submit" value="Submit Score" class="submit btn btn-lg redend" style = "display: inline-block"
+        >
           </form>
       </div>
-     
       <div class="floating-panel-score">
           <table id="leaderboard" style="width:100%; height: 60vh">
               <tr>
-                  <h3 style ="text-align: center">Leader Board</h3>
-              <tr> 
-                <th>Name</th>
-                <th>Score</th> 
-                <th>Time</th>
-              </tr>
-              
-            </table>
+                <h3 style ="text-align: center">Leader Board</h3>
+              </tr> 
+              <tbody>
+                <tr> 
+                  <th>Name</th>
+                  <th>Score</th> 
+                  <th>Time</th>
+                </tr>
+            </tbody>
+          </table>
             <button type="button" id="new-game" class="btn btn-lg red" onClick="window.location.reload()">New Game</button>
       </div>
       <div id="pano"></div>
       <div id="right-panels">
       <div class="floating-panel-welcome">
-        <h2> <b> Welcome! </b> </h2> <br> <p><b> How to play: </b> </p> <p> Navigate through the streets to find the 5 locations shown below. Order does not matter, so make sure you plan your trip wisely! </p> </div>
+        <h2> <b> Welcome! </b> </h2> <br> <p><b> How to play: </b> </p> <p> Navigate through the streets to find the 4 locations shown below. Order does not matter, so make sure you plan your trip wisely! </p> </div>
         <div>
-          <button type="button" class="btn btn-lg redstart" id="start-button">Start</button>
+          <button type="button" class="btn btn-lg redstart" id="start-button">Loading</button>
         </div>`
         <div class="floating-panel-timer"> </div>
 
