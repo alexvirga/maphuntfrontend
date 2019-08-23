@@ -200,10 +200,15 @@ function verifyAnswer(address){
       </tr>`)
       })
     })
-    // newGameButton.onclick = newGame()
+    
+    newGameButton.addEventListener("click", newGame)
   }
 
   function newGame (){
+    
+    // fetch (`${BASE_URL}/games/1`, {
+    //   method: 'DELETE'
+    // })
     window.location.reload()
   }
 
