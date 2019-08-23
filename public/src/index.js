@@ -4,12 +4,13 @@ const scoreFormPanel = document.querySelector('.score-form-panel')
 const leaderBoardPanel = document.querySelector('.floating-panel-score')
 const endGameButton = document.querySelector("#end-button")
 const startbutton = document.getElementById("start-button")
+const newGameButton = document.getElementById("new-game")
 const containerCard = document.getElementById("flex-container")
 const floatingPanel = document.getElementsByClassName("floating-panel")[0]
 const timerPanel = document.querySelector(".floating-panel-timer")
 const panono = document.getElementById('pano')
 const rightPanel = document.getElementById("right-panels")
-
+let gameOver = false
 
 
 
@@ -36,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
   .then(function(data) { 
     data.forEach(function (location){
       locationArray.push(location)
+      startbutton.innerText = "START"
       console.log("loaded")
     })
   })
@@ -118,7 +120,7 @@ let newCard = document.getElementById("flex-container")
     locationArray.forEach(function(randomLocation){
     newCard.insertAdjacentHTML("beforeend",
     `<div class="card border-0 shadow location-card" id="${randomLocation.address}">
-    <img src="imgs/NYSE.png" class="card-img-top" alt="...">
+    <img src=${randomLocation.img} class="card-img-top" alt="...">
     <div class="card-body text-center">
       <h5 class="card-title mb-0">${randomLocation.name}</h5>
     </div>
@@ -152,6 +154,11 @@ function verifyAnswer(address){
   startGame()
   
   function endGame (){
+    endGameButton.disabled = true;
+    if (gameOver){
+      return
+    }
+    gameOver = true
     panono.style.filter = "blur(8px)"
     rightPanel.style.filter = "blur(8px)"
     clearInterval(timer)
@@ -177,6 +184,7 @@ function verifyAnswer(address){
   } 
 
   function showLeaderBoard (){
+    console.log("Hi")
     scoreFormPanel.style.display = 'none'
     fetch (`${BASE_URL}/scores`)
     .then(function(response) {
@@ -192,10 +200,16 @@ function verifyAnswer(address){
       </tr>`)
       })
     })
+    // newGameButton.onclick = newGame()
+  }
+
+  function newGame (){
+    window.location.reload()
   }
 
 })
 //end DOM content loaded ///
+
 
 
 
