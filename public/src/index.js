@@ -3,6 +3,14 @@ const BASE_URL = "http://localhost:3000"
 const scoreFormPanel = document.querySelector('.score-form-panel')
 const leaderBoardPanel = document.querySelector('.floating-panel-score')
 const endGameButton = document.querySelector("#end-button")
+const startbutton = document.getElementById("start-button")
+const containerCard = document.getElementById("flex-container")
+const floatingPanel = document.getElementsByClassName("floating-panel")[0]
+const timerPanel = document.querySelector(".floating-panel-timer")
+const panono = document.getElementById('pano')
+const rightPanel = document.getElementById("right-panels")
+
+
 
 
 
@@ -59,15 +67,18 @@ function loadAddress(){
 
 function startGame(){
 
-  let containerCard = document.getElementById("flex-container")
-  containerCard.innerHTML = `
-  <div>
-  <button type="button" class="btn btn-lg red" id="start-button">Start</button>
-</div>`
 
 
-let startbutton = document.getElementById("start-button")
+
+
 startbutton.addEventListener("click", function(e){
+
+  floatingPanel.style.display = "inline"
+  timerPanel.style.display = "inline"
+ 
+
+  startbutton.style.display = "none"
+
   let welcomePanel = document.getElementsByClassName("floating-panel-welcome")[0]
   welcomePanel.style.display = "none"
   let timerCard = document.getElementsByClassName("floating-panel-timer")[0]
@@ -119,20 +130,20 @@ function verifyAnswer(address){
   if(cardAddress[0].id === address ){
     (foundCount++)
     cardAddress[0].id = "Found"
-    cardAddress[0].style.backgroundColor = "grey"} 
+    cardAddress[0].style.opacity = ".3"} 
       else if (cardAddress[1].id === address ){
         (foundCount++)
         cardAddress[1].id = "Found"
-        cardAddress[1].style.backgroundColor = "grey"}
+        cardAddress[1].style.opacity = ".3"}
       else if (cardAddress[2].id === address ){
         (foundCount++)
         cardAddress[2].id = "Found"
-        cardAddress[2].style.backgroundColor = "grey"}
+        cardAddress[2].style.opacity = ".3"}
       else if (cardAddress[3].id === address ){
         (foundCount++)
         cardAddress[3].id = "Found"
-        cardAddress[3].style.backgroundColor = "grey"}
-        if (foundCount === 1){
+        cardAddress[3].style.opacity = ".3"}
+        if (foundCount === 4){
           endGame()
         }
   }
@@ -141,6 +152,8 @@ function verifyAnswer(address){
   startGame()
   
   function endGame (){
+    panono.style.filter = "blur(8px)"
+    rightPanel.style.filter = "blur(8px)"
     clearInterval(timer)
     scoreFormPanel.style.display = 'block'
     scoreFormPanel.addEventListener("submit", function(e){

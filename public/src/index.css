@@ -22,14 +22,15 @@
   }
 
   .floating-panel {
-    display: flex;
+    display: none;
     flex-direction: column; 
     align-items: center;
     justify-content: space-around;
     align-content: center;
     vertical-align: middle;
-    background: url("https://i.imgur.com/aX3jVFW.png?1") no-repeat;
-    background-size: cover;
+    background: url("https://i.pinimg.com/originals/eb/3d/e4/eb3de4e0f17e160b4dfa9e28203baa4d.jpg") no-repeat;
+    background-size: 100% 100%;
+    background-clip: padding-box;
     box-shadow: 0 1px 38px rgba(0, 0, 0, 0.15), 0 5px 12px rgba(0, 0, 0, 0.25);
     overflow: hidden;
     left: 25%;
@@ -39,7 +40,7 @@
     border: 15px solid rgba(201, 201, 201, 0.747);
     font-family: 'Roboto','sans-serif';
     line-height: 30px;
-    height: 60vh;
+    height: 80vh;
     width: 30vw;
     float: right;
     overflow: auto;
@@ -52,8 +53,8 @@
 
   .floating-panel-score {
     
-    background: url("https://i.imgur.com/aX3jVFW.png?1") no-repeat;
-    background-size: cover;
+    background: url("https://i.pinimg.com/originals/eb/3d/e4/eb3de4e0f17e160b4dfa9e28203baa4d.jpg") no-repeat;
+    background-size: 100% 100%;
     box-shadow: 0 1px 38px rgba(0, 0, 0, 0.15), 0 5px 12px rgba(0, 0, 0, 0.25);
     overflow: hidden;
     z-index: 10;
@@ -79,9 +80,9 @@
   }
   .score-form-panel {
     
-    background: url("https://i.imgur.com/aX3jVFW.png?1") no-repeat;
+    background: url("https://i.pinimg.com/originals/eb/3d/e4/eb3de4e0f17e160b4dfa9e28203baa4d.jpg") no-repeat;
+    background-size: 100% 100%;
     text-align: center;
-    background-size: cover;
     box-shadow: 0 1px 38px rgba(0, 0, 0, 0.15), 0 5px 12px rgba(0, 0, 0, 0.25);
     overflow: hidden;
     z-index: 15;
@@ -116,7 +117,6 @@
     border: 15px solid rgba(201, 201, 201, 0.747);
     font-family: Arial, Helvetica, sans-serif;
     line-height: 30px;
-    height: 30%;
     width: 20vw;
     float: right;
     overflow: auto;
@@ -124,27 +124,14 @@
     margin-bottom: 20px;
   }
   .floating-panel-timer {
-    
     display: none;
-    flex-direction: column; 
-    align-items: center;
-    align-content: center;
-
-    background-size: cover;
     box-shadow: 0 1px 38px rgba(0, 0, 0, 0.15), 0 5px 12px rgba(0, 0, 0, 0.25);
-    left: 25%;
-    z-index: 5;
     background-color: #fff;
     padding: 10px;
     border: 8px solid rgba(201, 201, 201, 0.747);
     font-family: Arial, Helvetica, sans-serif;
-    line-height: 30px;
-    height: 10vh;
-    width: 10vw;
-    float: right;
-    overflow: auto;
     border-radius: 25px;
-    margin-bottom: 20px
+    margin-bottom: 10px;
   }
 
   h1{
@@ -189,40 +176,46 @@
   }
 
   #right-panels {
-    height: 90vh;
+    height: 100vh;
+    width: 31vw;
     display: flex;
     flex-direction: column; 
     align-items: center;
     justify-content: space-around;
     align-content: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
     
   }
 
 
   #flex-container {
-    display: flex;
+    display: inline;
+    justify-content: center;
       align-items: center;
 
     text-align: center;
     flex-direction: column;  
     height: 60vw;
     width: 30vw; 
+    background-clip: padding-box
 }
 
 .location-card {
+    opacity: 1;
     align-self: center;
     display: flex;
     align-items: center;
     text-align: center;
     flex: 1;
-    flex: 0 1 10%;
-    width: 80%;
-    margin-bottom: 10px;
+    margin: 0px 15px 14px 15px;
     border-radius: 20px;
+    
 }
 
 .card-img-top{
-  border-radius: 20px 20px 0px 0px 
+  border-radius: 20px 20px 0px 0px;
+  height: 18vh
 }
 
 
@@ -269,7 +262,13 @@
 }
 .btn.redend{
   background: #fe6d6d;
+  margin-top: 10px;
 }
+
+.btn.redstart{
+  background: #fe6d6d;
+}
+
 .btn.red:after{
   
     box-shadow: 0 0 0 2px #fe6d6d;
