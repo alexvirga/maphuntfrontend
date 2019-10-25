@@ -24,7 +24,7 @@ Then run `open index.html` in the project directory.
 
 ## Tech/Framework Used
 
-This project was built using JavaScript and the [Google Street View] API(https://developers.google.com/maps/documentation/javascript/streetview).
+This project was built using JavaScript and the [Google Street View API](https://developers.google.com/maps/documentation/javascript/streetview).
 
 ## Authors
 
